@@ -1,511 +1,1105 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouthParty Consortium | Strategic Coordination Network</title>
+    <title>Somali Youth Party | Official Platform</title>
     
+    <meta property="og:title" content="Somali Youth Party | One Nation. One Future.">
+    <meta property="og:description" content="Join the movement that is reshaping Somalia's destiny. Register for your ID card today.">
+    <meta property="og:image" content="https://www.igeforpresident.com/img.png">
+    <meta property="og:url" content="https://somaliyouthparty.com">
+    <meta property="og:type" content="website">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Merriweather:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
                     },
                     colors: {
                         brand: {
-                            dark: '#050505',     // Main Dark BG
-                            light: '#f8fafc',    // Main Light BG
-                            accent: '#d4af37',   // Gold
-                            glow: '#4f46e5',     // Indigo
-                            teal: '#10b981',     // Emerald
+                            blue: '#002855', 
+                            accent: '#E63946', 
+                            light: '#F1FAEE',
+                            gold: '#D4AF37'
                         }
                     },
                     animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'marquee': 'marquee 45s linear infinite',
-                        'blob': 'blob 10s infinite',
+                        pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        marquee: 'marquee 25s linear infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'spin-slow': 'spin 3s linear infinite',
                     },
                     keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
                         marquee: {
-                            '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(-50%)' },
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(-100%)' },
                         },
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         }
                     }
                 }
             }
         }
     </script>
-
     <style>
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 4px; }
+        .clip-hero { clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
         
-        /* Glassmorphism - Adapts to Mode */
-        .glass {
-            background: rgba(255, 255, 255, 0.7); /* Light Mode Glass */
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        .dark .glass {
-            background: rgba(255, 255, 255, 0.03); /* Dark Mode Glass */
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        /* Navbar Glass */
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        .dark .glass-nav {
-            background: rgba(5, 5, 5, 0.9);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        .somali-pattern {
+            background-color: transparent;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23002855' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background-attachment: fixed;
+            opacity: 1;
+            position: absolute;
+            inset: 0;
+            z-index: 0;
         }
 
-        /* Cursor */
-        .cursor-dot, .cursor-outline {
-            position: fixed; top: 0; left: 0;
-            transform: translate(-50%, -50%);
-            border-radius: 50%; z-index: 9999; pointer-events: none;
+        .skeleton {
+            background: #e2e8f0;
+            background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
         }
-        .cursor-dot { width: 8px; height: 8px; background-color: #d4af37; }
-        .cursor-outline {
-            width: 40px; height: 40px;
-            border: 2px solid rgba(212, 175, 55, 0.5);
-            transition: width 0.2s, height 0.2s;
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .image-loaded { opacity: 0; transition: opacity 0.5s; }
+        .image-loaded.show { opacity: 1; }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #1e293b; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+
+        .fixed-bg-text {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-5deg);
+            font-size: 8vw;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #002855;
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1;
+            white-space: nowrap;
+            user-select: none;
+        }
+        
+        .floating-particle {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: 1;
+            animation: float 20s infinite linear;
         }
 
-        /* Modern Button Glow */
-        .modern-btn {
-            position: relative; overflow: hidden; transition: color 0.3s;
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, 100px) rotate(90deg); }
+            50% { transform: translate(0, 200px) rotate(180deg); }
+            75% { transform: translate(-100px, 100px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
         }
-        .modern-btn::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to right, var(--btn-color-from, #d4af37), var(--btn-color-to, #f59e0b));
-            transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: -1;
-        }
-        .modern-btn:hover::before { transform: translateY(0); }
         
-        /* Form Inputs */
-        .input-field {
+        .input-error {
+            border-color: #ef4444 !important; 
+            background-color: #fef2f2 !important; 
+        }
+        .error-message {
+            color: #ef4444;
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        /* Glow Stroke Card CSS */
+        .glow-card {
+            position: relative;
+            background: #0f172a; 
+            border-radius: 18px;
+            padding: 3px;
+            overflow: hidden;
+            color: white;
+        }
+        .glow-card::before {
+            content: "";
+            position: absolute;
+            inset: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                rgba(230, 57, 70, 0.2) 40deg,
+                rgba(230, 57, 70, 1) 60deg,
+                rgba(230, 57, 70, 0.2) 80deg,
+                transparent 120deg
+            );
+            animation: rotate 4s linear infinite; 
+            top: -50%;
+            left: -50%;
+        }
+        .glow-card::after {
+            content: "";
+            position: absolute;
+            inset: 3px; 
+            background: #0f172a; 
+            border-radius: 15px;
+            z-index: 0;
+        }
+        .glow-content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+        }
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Flag Dropdown CSS */
+        .flag-selected {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .flag-dropdown {
+            display: none;
+            position: absolute;
+            top: 105%;
+            left: 0;
             width: 100%;
-            background: rgba(0,0,0,0.05); /* Light mode bg */
-            border: 1px solid rgba(0,0,0,0.1);
-            padding: 1rem 1.5rem;
-            font-size: 0.875rem;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            max-height: 260px;
+            overflow-y: auto;
+            z-index: 100;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .flag-option {
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
             color: #1e293b;
-            transition: all 0.3s;
         }
-        .dark .input-field {
-            background: rgba(255,255,255,0.05); /* Dark mode bg */
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #ffffff;
-        }
-        .input-field:focus {
-            outline: none;
-            border-color: #d4af37;
-        }
+        .flag-option:hover { background: #f1f5f9; }
+        .flag-option img, .flag-selected img { width: 20px; height: 14px; object-fit: cover; }
     </style>
 </head>
-<body class="bg-brand-light dark:bg-brand-dark text-slate-800 dark:text-slate-100 overflow-x-hidden transition-colors duration-300">
+<body class="bg-slate-50 text-slate-900 antialiased relative">
 
-    <div class="cursor-dot hidden md:block"></div>
-    <div class="cursor-outline hidden md:block"></div>
-
-    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden opacity-50 dark:opacity-100 transition-opacity">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-accent/20 dark:bg-brand-accent/10 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob"></div>
-        <div class="absolute top-0 right-1/4 w-96 h-96 bg-brand-glow/20 dark:bg-brand-glow/10 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000"></div>
+    <div class="fixed-bg-text">
+        Somali Youth Party — 2026
     </div>
 
-    <nav class="fixed w-full z-40 glass-nav transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex items-center gap-4 cursor-pointer hover-target" onclick="window.scrollTo(0,0)">
-                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-accent to-brand-glow flex items-center justify-center font-bold text-white text-xl shadow-lg">YP</div>
-                    <div>
-                        <h1 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white uppercase">
-                            YouthParty <span class="text-brand-accent">Consortium</span>
-                        </h1>
-                        <p class="text-[9px] uppercase tracking-[0.2em] text-slate-500 dark:text-gray-400">Independent Strategic Network</p>
-                    </div>
-                </div>
-                
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#focus" class="hover-target text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-gray-300 hover:text-brand-accent transition-colors">Operational Focus</a>
-                    <a href="#leadership" class="hover-target text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-gray-300 hover:text-brand-accent transition-colors">Governance</a>
-                    <a href="#charter" class="hover-target text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-gray-300 hover:text-brand-accent transition-colors">Charter</a>
-                    
-                    <button id="theme-toggle" class="w-8 h-8 rounded-full bg-slate-200 dark:bg-white/10 flex items-center justify-center text-slate-600 dark:text-white hover:bg-brand-accent hover:text-white transition-colors">
-                        <i class="fa-solid fa-moon dark:hidden"></i>
-                        <i class="fa-solid fa-sun hidden dark:block"></i>
-                    </button>
+    <div class="fixed inset-0 pointer-events-none z-[1]">
+        <div class="floating-particle bg-brand-blue w-4 h-4" style="top: 10%; left: 20%; animation-duration: 25s; animation-delay: -2s;"></div>
+        <div class="floating-particle bg-brand-accent w-3 h-3" style="top: 30%; left: 80%; animation-duration: 30s; animation-delay: -5s;"></div>
+        <div class="floating-particle bg-brand-blue w-6 h-6" style="top: 70%; left: 10%; animation-duration: 35s; animation-delay: -10s; opacity: 0.1;"></div>
+        <div class="floating-particle bg-brand-accent w-2 h-2" style="top: 50%; left: 50%; animation-duration: 20s; animation-delay: -1s;"></div>
+        <div class="floating-particle bg-brand-blue w-5 h-5" style="top: 85%; left: 75%; animation-duration: 40s; animation-delay: -15s; opacity: 0.15;"></div>
+    </div>
 
-                    <button onclick="document.getElementById('accreditation').scrollIntoView()" class="hover-target px-6 py-3 rounded-sm bg-slate-900 dark:bg-white/5 border border-transparent dark:border-white/10 text-white hover:bg-brand-accent hover:border-brand-accent transition-all text-[10px] font-bold uppercase tracking-widest">
-                        Consortium Access
-                    </button>
-                </div>
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-accent z-[60] transition-all duration-100" style="width: 0%"></div>
 
-                <div class="md:hidden flex items-center gap-4">
-                    <button id="theme-toggle-mobile" class="w-8 h-8 rounded-full bg-slate-200 dark:bg-white/10 flex items-center justify-center text-slate-600 dark:text-white">
-                        <i class="fa-solid fa-moon dark:hidden"></i>
-                        <i class="fa-solid fa-sun hidden dark:block"></i>
-                    </button>
-                    <button class="text-slate-900 dark:text-white text-2xl"><i class="fa-solid fa-bars"></i></button>
+    <a href="#" class="fixed bottom-6 right-6 z-50 bg-brand-blue text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition border-2 border-white group">
+        <i class="fas fa-arrow-up text-2xl group-hover:animate-bounce"></i>
+    </a>
+
+    <div class="somali-pattern h-full"></div>
+
+    <div class="bg-slate-900 text-white text-xs py-2 overflow-hidden whitespace-nowrap relative z-50">
+        <div class="animate-marquee inline-block">
+            <span class="mx-8 font-bold text-brand-accent">🚨 RALLY UPDATE:</span> <span class="mr-8">Mogadishu Stadium this Friday!</span>
+            <span class="mx-4 text-slate-600">|</span>
+            <span class="mx-8 font-bold text-green-400">📈 POLLS:</span> <span class="mr-8">SYP leading in youth demographic by 15%</span>
+            <span class="mx-4 text-slate-600">|</span>
+            <span class="mx-8 font-bold text-blue-400">🗳️ ACTION:</span> <span class="mr-8">Voter Registration deadline extended to Dec 30th</span>
+        </div>
+    </div>
+
+    <nav class="bg-white/95 backdrop-blur-sm border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center relative z-50">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-brand-blue rounded flex items-center justify-center text-white text-xl font-bold">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="leading-none">
+                    <h1 class="font-black text-2xl text-brand-blue tracking-tighter">SYP</h1>
+                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest block">Somali Youth Party</span>
                 </div>
             </div>
+
+            <div class="hidden md:flex items-center gap-8 font-bold text-sm text-slate-600 uppercase tracking-wide">
+                <a href="#candidate" class="hover:text-brand-blue transition">The Candidate</a>
+                <a href="#agenda" class="hover:text-brand-blue transition">Vision</a>
+                <a href="#events" class="hover:text-brand-blue transition">Events</a>
+                <a href="#leadership" class="hover:text-brand-blue transition">Leadership</a>
+                <a href="#join" class="hover:text-brand-blue transition">Register</a>
+            </div>
+
+            <a href="#join" class="hidden md:block bg-brand-accent text-white px-6 py-3 rounded font-bold hover:bg-red-700 transition shadow-lg transform hover:-translate-y-0.5 animate-pulse">
+                Become a Member
+            </a>
+            
+            <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-brand-blue z-50 relative"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
-    <main class="transition-opacity duration-500 overflow-x-hidden">
-        
-        <section id="home" class="relative z-10 min-h-screen flex items-center justify-center pt-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
-                
-                <div class="md:w-1/2 text-center md:text-left" data-aos="fade-right">
-                    <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-brand-accent/10 text-brand-accent text-[10px] font-bold mb-8 border border-brand-accent/20 tracking-widest uppercase">
-                        <span class="w-1.5 h-1.5 bg-brand-accent rounded-full animate-pulse"></span>
-                        <span>Independent Strategic Network</span>
-                    </div>
-                    
-                    <h1 class="text-4xl md:text-6xl font-black mb-8 leading-[1.1] text-slate-900 dark:text-white">
-                        A Coordinated Network for <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-blue-600 to-brand-glow dark:via-white">National Development Leadership.</span>
-                    </h1>
-                    
-                    <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto md:mx-0 mb-12 text-lg leading-relaxed font-light">
-                        The <strong>YouthParty Consortium</strong> is a private, non-partisan coordination network. We align verified professionals with long-term national leadership objectives.
-                    </p>
-                    
-                    <div class="flex flex-col sm:flex-row gap-5 justify-center md:justify-start">
-                        <button onclick="document.getElementById('accreditation').scrollIntoView()" class="hover-target px-8 py-4 bg-brand-accent text-white dark:text-black font-bold rounded-sm hover:scale-105 transition-transform shadow-xl uppercase tracking-widest text-xs">
-                            Apply for Consortium Access
-                        </button>
-                        <button class="hover-target px-8 py-4 glass text-slate-900 dark:text-white font-bold rounded-sm hover:bg-slate-200 dark:hover:bg-white/5 transition-colors border border-slate-200 dark:border-white/10 uppercase tracking-widest text-xs">
-                            View Governance Framework
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="md:w-1/2 mt-20 md:mt-0 relative" data-aos="fade-left">
-                    <div class="relative w-full h-[500px] flex items-center justify-center animate-float">
-                        <div class="absolute w-80 h-80 bg-gradient-to-tr from-brand-accent to-brand-glow rounded-full opacity-20 blur-[100px]"></div>
-                        
-                        <div class="relative z-10 w-80 h-96 glass rounded-none border border-white/20 dark:border-white/10 rotate-2 hover:rotate-0 transition-all duration-700 shadow-2xl group hover-target bg-white/50 dark:bg-transparent">
-                            <div class="absolute inset-0 bg-black/5 dark:bg-black/40"></div>
-                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-80 dark:opacity-50 grayscale group-hover:grayscale-0 transition-all duration-700">
-                            <div class="absolute bottom-0 left-0 w-full p-8 border-t border-white/20 dark:border-white/10 bg-white/80 dark:bg-black/60 backdrop-blur-md">
-                                <p class="text-slate-900 dark:text-white font-bold text-lg font-sans tracking-tight">Structured Coordination</p>
-                                <p class="text-[10px] text-brand-accent uppercase tracking-[0.2em] mt-2">Verified Membership</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-blue z-[45] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center space-y-8 text-white font-bold text-2xl shadow-2xl">
+        <div class="absolute top-0 right-0 p-8 text-white/20 text-9xl font-black -mt-10 -mr-10 select-none">SYP</div>
+        <a href="#candidate" onclick="toggleMobileMenu()" class="hover:text-brand-accent transition">The Candidate</a>
+        <a href="#agenda" onclick="toggleMobileMenu()" class="hover:text-brand-accent transition">Vision</a>
+        <a href="#events" onclick="toggleMobileMenu()" class="hover:text-brand-accent transition">Events</a>
+        <a href="#leadership" onclick="toggleMobileMenu()" class="hover:text-brand-accent transition">Leadership</a>
+        <a href="#join" onclick="toggleMobileMenu()" class="bg-white text-brand-blue px-8 py-3 rounded-full hover:bg-brand-accent hover:text-white transition shadow-lg">Register Now</a>
+    </div>
 
-        <div class="py-5 border-y border-slate-200 dark:border-white/5 bg-slate-100/50 dark:bg-black/40 backdrop-blur-md relative z-20 overflow-hidden">
-             <div class="whitespace-nowrap animate-marquee flex gap-24 text-[10px] font-mono font-medium tracking-[0.3em] text-slate-500 uppercase">
-                <span>/// CONSORTIUM STATUS: <span class="text-brand-accent">ACTIVE</span></span>
-                <span>/// LEADERSHIP COORDINATION: <span class="text-slate-900 dark:text-white">ALIGNED</span></span>
-                <span>/// MEMBER VERIFICATION: <span class="text-slate-900 dark:text-white">REQUIRED</span></span>
-                <span>/// NATIONAL CAPACITY BUILDING: <span class="text-brand-accent">ONGOING</span></span>
+    <header class="relative bg-brand-blue h-[85vh] flex items-center clip-hero overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <video class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-multiply" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1541872703-74c5963631df">
+                <source src="https://joy1.videvo.net/videvo_files/video/free/2019-11/large_watermarked/190301_1_25_11_preview.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-blue/90 to-brand-blue/40"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10 w-full grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-block bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-white text-xs font-bold uppercase tracking-widest mb-6 animate-pulse">
+                    <i class="fas fa-circle text-red-500 mr-2 text-[8px] align-middle"></i> Live Updates Available
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-brand-accent leading-tight mb-6 drop-shadow-lg">
+                    One Nation.<br>
+                    One Future.
+                </h1>
+                <p class="text-xl text-blue-100 mb-8 leading-relaxed max-w-lg drop-shadow-md">
+                    We are the party of action. We are the party of the youth. Join the movement that is reshaping our country's destiny.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#join" class="px-8 py-4 bg-white text-brand-blue font-bold rounded shadow-xl hover:bg-slate-100 transition text-center animate-pulse">
+                        Join The Party
+                    </a>
+                    <a href="#agenda" class="px-8 py-4 border border-white/30 text-white font-bold rounded hover:bg-white/10 transition flex items-center justify-center gap-2">
+                        <i class="fas fa-chart-pie"></i> View Our Data
+                    </a>
+                </div>
             </div>
         </div>
+    </header>
 
-        <section id="focus" class="py-24 relative z-10 border-t border-slate-200 dark:border-white/5 bg-slate-50 dark:bg-brand-dark transition-colors">
-             <div class="max-w-7xl mx-auto px-4">
-                <div class="text-center mb-20" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-slate-900 dark:text-white uppercase tracking-tight">Operational <span class="text-brand-accent">Focus Areas</span></h2>
-                    <p class="text-slate-500 max-w-2xl mx-auto font-light">The Consortium functions through defined operational domains designed to support long-term national capacity building.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="glass p-8 rounded-none border border-slate-200 dark:border-white/5 hover:border-brand-accent/50 transition-all duration-500 h-full bg-white dark:bg-transparent shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="0">
-                        <div class="w-12 h-12 bg-slate-100 dark:bg-white/5 flex items-center justify-center mb-8 text-slate-900 dark:text-white text-xl border border-slate-200 dark:border-white/10">
-                            <i class="fa-solid fa-chart-line"></i>
-                        </div>
-                        <h3 class="text-sm font-bold mb-4 text-slate-900 dark:text-white uppercase tracking-widest">Economic Sovereignty</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-light">Facilitating coordinated private-sector participation and capital alignment.</p>
-                    </div>
-
-                    <div class="glass p-8 rounded-none border border-slate-200 dark:border-white/5 hover:border-brand-glow/50 transition-all duration-500 h-full bg-white dark:bg-transparent shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="100">
-                        <div class="w-12 h-12 bg-slate-100 dark:bg-white/5 flex items-center justify-center mb-8 text-slate-900 dark:text-white text-xl border border-slate-200 dark:border-white/10">
-                            <i class="fa-solid fa-server"></i>
-                        </div>
-                        <h3 class="text-sm font-bold mb-4 text-slate-900 dark:text-white uppercase tracking-widest">Digital Infrastructure</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-light">Developing secure coordination tools and internal governance systems.</p>
-                    </div>
-
-                    <div class="glass p-8 rounded-none border border-slate-200 dark:border-white/5 hover:border-brand-teal/50 transition-all duration-500 h-full bg-white dark:bg-transparent shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-12 h-12 bg-slate-100 dark:bg-white/5 flex items-center justify-center mb-8 text-slate-900 dark:text-white text-xl border border-slate-200 dark:border-white/10">
-                            <i class="fa-solid fa-bolt"></i>
-                        </div>
-                        <h3 class="text-sm font-bold mb-4 text-slate-900 dark:text-white uppercase tracking-widest">Energy Independence</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-light">Supporting research and technical coordination around sustainable energy.</p>
-                    </div>
-
-                    <div class="glass p-8 rounded-none border border-slate-200 dark:border-white/5 hover:border-brand-accent/50 transition-all duration-500 h-full bg-white dark:bg-transparent shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="300">
-                        <div class="w-12 h-12 bg-slate-100 dark:bg-white/5 flex items-center justify-center mb-8 text-slate-900 dark:text-white text-xl border border-slate-200 dark:border-white/10">
-                            <i class="fa-solid fa-globe"></i>
-                        </div>
-                        <h3 class="text-sm font-bold mb-4 text-slate-900 dark:text-white uppercase tracking-widest">Cultural Diplomacy</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-light">Structuring international engagement and diaspora coordination.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="leadership" class="py-24 relative z-10 overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-16">
+    <section id="candidate" class="py-12 relative z-20 -mt-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100 relative">
+                <div class="somali-pattern"></div>
                 
-                <div class="md:w-1/2 relative" data-aos="fade-right">
-                    <div class="absolute inset-0 bg-brand-accent/20 filter blur-[80px] rounded-full"></div>
-                    <div class="relative glass p-2 rounded-none border border-slate-200 dark:border-white/10 shadow-2xl bg-white dark:bg-transparent">
-                        <div class="aspect-[3/4] overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-1000">
-                            <img src="https://nasaige.com/wp-content/uploads/2023/10/WhatsApp-Image-2023-10-27-at-4.53.07-PM.jpeg?q=80&w=2072" 
-                                 alt="Nasir Ige" 
-                                 class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-1000">
-                            
-                            <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black to-transparent">
-                                <span class="text-white font-bold text-xl block">Nasir Ige</span>
-                                <span class="text-brand-accent text-xs uppercase tracking-widest">Founding Chairman</span>
-                            </div>
+                <div class="grid md:grid-cols-2 relative z-10">
+                    <div class="h-96 md:h-auto relative bg-slate-200 overflow-hidden group">
+                        <div class="absolute inset-0 z-20 skeleton" id="candidate-skeleton"></div>
+                        <img src="https://www.igeforpresident.com/img.png" 
+                             class="absolute inset-0 w-full h-full object-cover object-top image-loaded" 
+                             alt="Nasir Ige"
+                             onload="document.getElementById('candidate-skeleton').style.display='none'; this.classList.add('show');">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-blue/90 via-transparent to-transparent opacity-80 z-10"></div>
+                        
+                        <div class="absolute inset-0 flex items-end p-8 z-30 md:hidden">
+                            <h2 class="text-3xl font-black text-white">Nasir Ige</h2>
                         </div>
                     </div>
-                </div>
-
-                <div class="md:w-1/2" data-aos="fade-left">
-                    <div class="inline-block mb-8">
-                        <span class="block text-[10px] text-brand-accent uppercase tracking-[0.3em] mb-2">Institutional Leadership</span>
-                        <div class="h-px w-20 bg-brand-accent"></div>
-                    </div>
-                    
-                    <h2 class="text-3xl md:text-5xl font-light mb-8 leading-tight text-slate-900 dark:text-white">"Leadership is not an event. <br> <span class="font-bold">It is a system.</span>"</h2>
-                    
-                    <p class="text-lg text-slate-600 dark:text-slate-300 mb-8 font-light leading-relaxed">
-                        Nasir Ige serves as the Founding Chairman of the YouthParty Consortium. His role within the Consortium is institutional — focused on structure, continuity, and long-term governance — separate from any electoral process.
-                    </p>
-                    
-                    <div class="grid grid-cols-2 gap-8 border-t border-slate-200 dark:border-white/10 pt-8">
-                        <div>
-                             <span class="block text-3xl font-bold text-slate-900 dark:text-white mb-2">MMXV</span>
-                             <span class="text-[10px] text-slate-500 uppercase tracking-widest">Institutional Formation</span>
-                        </div>
-                        <div>
-                             <span class="block text-3xl font-bold text-slate-900 dark:text-white mb-2">Active</span>
-                             <span class="text-[10px] text-slate-500 uppercase tracking-widest">Coordination Units</span>
+                    <div class="p-12 md:p-16 flex flex-col justify-center">
+                        <span class="text-brand-accent font-bold uppercase tracking-widest text-sm mb-2">Our Presidential Candidate</span>
+                        <h2 class="text-4xl md:text-5xl font-black text-brand-blue mb-6">Nasir Ige</h2>
+                        <h3 class="font-serif italic text-xl text-slate-500 mb-8">"Leadership is not about the next election, it's about the next generation."</h3>
+                        <p class="text-slate-600 leading-relaxed mb-8">
+                            A visionary leader with over 20 years of public service experience. Nasir Ige believes in a Somalia where every child has an education, every family has security, and every business has the opportunity to thrive.
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="h-px bg-slate-300 flex-1"></div>
+                            <span class="font-bold text-brand-blue text-sm uppercase">Official Nominee</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="accreditation" class="py-24 relative z-10 bg-slate-100 dark:bg-black/50 transition-colors">
-            <div class="max-w-5xl mx-auto px-4">
-                <div class="glass p-10 md:p-16 relative overflow-hidden shadow-2xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/10" data-aos="fade-up">
-                    
-                    <div class="relative z-10 mb-12 border-l-4 border-brand-accent pl-6">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-slate-900 dark:text-white">Member Accreditation & <br> Identity Verification</h2>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm font-light max-w-lg">
-                            Consortium access is restricted. Membership is granted through a verification process designed to ensure integrity and operational reliability.
-                        </p>
+    <section class="py-8 relative" id="stats-section">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="bg-brand-blue/90 backdrop-blur-lg border border-white/20 rounded-2xl shadow-xl p-10 text-white relative overflow-hidden" data-aos="fade-up">
+                
+                <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+                <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-brand-accent/20 rounded-full blur-2xl"></div>
+                
+                <div class="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
+                    <div class="p-2">
+                        <div class="text-4xl md:text-5xl font-black mb-1 flex justify-center items-center">
+                            <span id="count-members" data-target="14">0</span>k
+                        </div>
+                        <div class="text-blue-200 text-sm font-bold uppercase tracking-widest">Active Members</div>
                     </div>
-                    
-                    <form class="space-y-8 relative z-10">
+                    <div class="p-2">
+                        <div class="text-4xl md:text-5xl font-black mb-1" id="count-offices" data-target="6">0</div>
+                        <div class="text-blue-200 text-sm font-bold uppercase tracking-widest">Regional Offices</div>
+                    </div>
+                    <div class="p-2">
+                        <div class="text-4xl md:text-5xl font-black mb-1 flex justify-center items-center">
+                            <span id="count-verified" data-target="100">0</span>%
+                        </div>
+                        <div class="text-blue-200 text-sm font-bold uppercase tracking-widest">Verified Process</div>
+                    </div>
+                    <div class="p-2">
+                        <div class="text-4xl md:text-5xl font-black mb-1 flex justify-center items-center">
+                            <span id="count-support" data-target="24">0</span>/7
+                        </div>
+                        <div class="text-blue-200 text-sm font-bold uppercase tracking-widest">Support Active</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="agenda" class="py-16 bg-white relative">
+        <div class="somali-pattern"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-12">
+                <span class="block text-brand-blue font-black uppercase tracking-widest text-2xl mb-4">The Core Pillars</span>
+                
+                <span class="text-brand-accent font-bold uppercase tracking-widest text-sm">The Data Agenda</span>
+                <h2 class="text-5xl md:text-6xl font-black text-brand-blue mt-2">Real Targets. Real Progress.</h2>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">We don't just promise. We calculate. See our 5-year targets for the nation.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-lg" data-aos="fade-up">
+                    <div class="flex justify-between items-end mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-blue-100 text-brand-blue rounded-full flex items-center justify-center text-xl"><i class="fas fa-briefcase"></i></div>
+                            <h3 class="font-bold text-xl text-brand-blue">Youth Employment</h3>
+                        </div>
+                        <span class="text-brand-accent font-black text-2xl">Target: 85%</span>
+                    </div>
+                    <div class="w-full bg-blue-100 rounded-full h-4">
+                        <div class="bg-brand-blue h-4 rounded-full relative" style="width: 85%"></div>
+                    </div>
+                    <p class="mt-6 text-sm text-slate-600">Plan: Tech incubators in every region and tax-free zones for startups.</p>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex justify-between items-end mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xl"><i class="fas fa-seedling"></i></div>
+                            <h3 class="font-bold text-xl text-brand-blue">Agriculture</h3>
+                        </div>
+                        <span class="text-green-600 font-black text-2xl">+300%</span>
+                    </div>
+                    <div class="w-full bg-blue-100 rounded-full h-4">
+                         <div class="bg-green-500 h-4 rounded-full relative" style="width: 90%"></div>
+                    </div>
+                    <p class="mt-6 text-sm text-slate-600">Plan: Modern irrigation systems and farmer co-ops.</p>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-between items-end mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-xl"><i class="fas fa-heartbeat"></i></div>
+                            <h3 class="font-bold text-xl text-brand-blue">Healthcare</h3>
+                        </div>
+                        <span class="text-red-600 font-black text-2xl">100%</span>
+                    </div>
+                    <div class="w-full bg-blue-100 rounded-full h-4">
+                         <div class="bg-red-500 h-4 rounded-full relative" style="width: 100%"></div>
+                    </div>
+                    <p class="mt-6 text-sm text-slate-600">Plan: Free universal healthcare for all children under 15.</p>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex justify-between items-end mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-xl"><i class="fas fa-book-reader"></i></div>
+                            <h3 class="font-bold text-xl text-brand-blue">Education</h3>
+                        </div>
+                        <span class="text-purple-600 font-black text-2xl">95%</span>
+                    </div>
+                    <div class="w-full bg-blue-100 rounded-full h-4">
+                         <div class="bg-purple-600 h-4 rounded-full relative" style="width: 95%"></div>
+                    </div>
+                    <p class="mt-6 text-sm text-slate-600">Plan: Digital literacy curriculum in all public schools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="py-16 bg-slate-50 relative overflow-hidden">
+        <div class="absolute right-0 top-0 text-[20rem] text-slate-200 opacity-20 font-black leading-none -mr-20 -mt-20 select-none">2025</div>
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <span class="text-brand-accent font-bold uppercase tracking-widest text-sm">On The Move</span>
+                    <h2 class="text-4xl font-black text-brand-blue mt-2">Campaign Trail</h2>
+                </div>
+                <a href="#" class="text-brand-blue font-bold hover:text-brand-accent transition mt-4 md:mt-0">View Full Schedule <i class="fas fa-arrow-right ml-2"></i></a>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-xl shadow-lg border-l-8 border-brand-accent p-6 flex flex-col md:flex-row items-center gap-6 transform hover:-translate-y-1 transition duration-300 group cursor-pointer" data-aos="fade-up">
+                    <div class="bg-red-50 text-brand-accent px-6 py-4 rounded-lg text-center min-w-[100px]">
+                        <div class="text-sm font-bold uppercase">DEC</div>
+                        <div class="text-3xl font-black">25</div>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h3 class="font-bold text-xl text-brand-blue mb-1 group-hover:text-brand-accent transition">Mogadishu Grand Rally</h3>
+                        <div class="text-slate-500 text-sm flex flex-col md:flex-row gap-3">
+                            <span><i class="fas fa-map-marker-alt text-slate-400 mr-1"></i> Konis Stadium</span>
+                            <span><i class="far fa-clock text-slate-400 mr-1"></i> 15:00 PM</span>
+                        </div>
+                    </div>
+                    <button class="bg-slate-100 text-slate-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-brand-blue hover:text-white transition"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg border-l-8 border-brand-blue p-6 flex flex-col md:flex-row items-center gap-6 transform hover:-translate-y-1 transition duration-300 group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-blue-50 text-brand-blue px-6 py-4 rounded-lg text-center min-w-[100px]">
+                        <div class="text-sm font-bold uppercase">DEC</div>
+                        <div class="text-3xl font-black">30</div>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h3 class="font-bold text-xl text-brand-blue mb-1 group-hover:text-brand-blue transition">Kismayo Youth Townhall</h3>
+                        <div class="text-slate-500 text-sm flex flex-col md:flex-row gap-3">
+                            <span><i class="fas fa-map-marker-alt text-slate-400 mr-1"></i> Jubba Hotel</span>
+                            <span><i class="far fa-clock text-slate-400 mr-1"></i> 09:00 AM</span>
+                        </div>
+                    </div>
+                    <button class="bg-slate-100 text-slate-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-brand-blue hover:text-white transition"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="manifesto" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="bg-brand-blue rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row items-center">
+                <div class="p-12 md:w-3/5 text-white">
+                    <span class="text-brand-accent font-bold uppercase tracking-widest text-sm mb-2 block">The 2025 Vision</span>
+                    <h2 class="text-4xl font-black mb-6">Read The Plan to Rebuild Our Nation.</h2>
+                    <p class="text-blue-100 mb-8 leading-relaxed">This isn't just a pamphlet. It’s a 150-page roadmap covering economic reform, digital infrastructure, and healthcare access. Download it, read it, hold us accountable.</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-white text-brand-blue font-bold px-8 py-4 rounded hover:bg-slate-100 transition flex items-center justify-center gap-3"><i class="fas fa-file-pdf text-red-500 text-xl"></i> Download Full PDF</button>
+                        <button class="border border-white/30 text-white font-bold px-8 py-4 rounded hover:bg-white/10 transition flex items-center justify-center gap-3"><i class="fas fa-play-circle text-xl"></i> Watch Summary</button>
+                    </div>
+                </div>
+                <div class="md:w-2/5 bg-gradient-to-br from-blue-900 to-slate-900 h-full min-h-[400px] relative flex items-center justify-center p-8">
+                    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+                    <div class="relative w-48 h-72 bg-white rounded-r-lg shadow-[20px_20px_60px_rgba(0,0,0,0.5)] transform -rotate-6 hover:rotate-0 transition duration-500 z-10 flex flex-col border-l-8 border-brand-accent">
+                        <div class="h-1/2 bg-brand-blue p-4 flex flex-col justify-end">
+                            <div class="text-white font-black text-2xl leading-none">THE<br>VISION</div>
+                        </div>
+                        <div class="h-1/2 p-4 bg-slate-50">
+                            <div class="w-8 h-8 bg-brand-accent rounded-full mb-2"></div>
+                            <div class="text-xs text-slate-400 font-bold uppercase">Somali Youth Party</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-slate-400 font-bold uppercase tracking-widest text-xs mb-8">Endorsed by Leading National Organizations</p>
+            
+            <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-3xl text-blue-600 group-hover:scale-110 transition">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <span class="font-bold text-slate-700 text-sm">Teachers Union</span>
+                </div>
+
+                <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center text-3xl text-red-600 group-hover:scale-110 transition">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <span class="font-bold text-slate-700 text-sm">Medical Assoc.</span>
+                </div>
+
+                <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-3xl text-green-600 group-hover:scale-110 transition">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <span class="font-bold text-slate-700 text-sm">Farmers Co-op</span>
+                </div>
+
+                <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center text-3xl text-purple-600 group-hover:scale-110 transition">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <span class="font-bold text-slate-700 text-sm">Somaliland Tech</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-brand-blue relative">
+        <div class="somali-pattern"></div> <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-brand-accent font-bold uppercase tracking-widest text-sm">Codka Shacabka</span>
+                <h2 class="text-4xl font-black text-white mt-2">Why We Joined SYP</h2>
+            </div>
+    
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glow-card" data-aos="zoom-in">
+                    <div class="glow-content p-8 flex flex-col h-full justify-between">
+                        <div class="absolute -top-5 left-8 text-6xl text-brand-accent opacity-20 font-serif">"</div>
+                        <p class="text-slate-300 italic mb-6 relative z-10">"For years I felt ignored by politicians. Nasir and the SYP actually sat down with our university union and listened. They have my vote."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-slate-700 rounded-full overflow-hidden">
+                                 <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <div class="font-bold text-white">Leyla Mohamed</div>
+                                <div class="text-xs text-slate-400 uppercase font-bold">Student, UOH</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="glow-card" data-aos="zoom-in" data-aos-delay="100">
+                     <div class="glow-content p-8 flex flex-col h-full justify-between">
+                          <div class="absolute -top-5 left-8 text-6xl text-brand-accent opacity-20 font-serif">"</div>
+                        <p class="text-slate-300 italic mb-6 relative z-10">"The focus on digital infrastructure is what we need. I run an online business, and their plan for fiber optics is a game changer."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-slate-700 rounded-full overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=100" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <div class="font-bold text-white">Abdi Rahman</div>
+                                <div class="text-xs text-slate-400 uppercase font-bold">Entrepreneur</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="glow-card" data-aos="zoom-in" data-aos-delay="200">
+                     <div class="glow-content p-8 flex flex-col h-full justify-between">
+                          <div class="absolute -top-5 left-8 text-6xl text-brand-accent opacity-20 font-serif">"</div>
+                        <p class="text-slate-300 italic mb-6 relative z-10">"Peace and Unity. That is what SYP stands for. I have seen many parties come and go, but this one has the energy of the future."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-slate-700 rounded-full overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1545167622-3a6ac756afa4?w=100" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <div class="font-bold text-white">Olad Guled</div>
+                                <div class="text-xs text-slate-400 uppercase font-bold">Community Elder</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="leadership" class="py-16 bg-white relative">
+        <div class="somali-pattern"></div>
+        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+            <span class="text-brand-accent font-bold uppercase tracking-widest text-sm">The Executive Committee</span>
+            <h2 class="text-4xl font-black text-brand-blue mt-2 mb-16">Meet The Leadership</h2>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="group relative overflow-hidden rounded-xl bg-slate-100" data-aos="fade-up">
+                      <div class="absolute inset-0 z-20 skeleton" id="lead1-skeleton"></div>
+                    <img src="https://www.igeforpresident.com/img.png" 
+                         onload="document.getElementById('lead1-skeleton').style.display='none'; this.classList.add('show');"
+                         class="w-full h-80 object-cover object-top grayscale group-hover:grayscale-0 transition duration-500 image-loaded">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-brand-blue to-transparent p-6 pt-20 text-left z-30">
+                        <h3 class="text-white font-bold text-lg">Nasa Ige</h3>
+                        <p class="text-brand-accent text-xs font-bold uppercase tracking-widest">Party Chairman</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-brand-blue to-transparent p-6 pt-20 text-left">
+                        <h3 class="text-white font-bold text-lg">Dr. Amina Ali</h3>
+                        <p class="text-blue-300 text-xs font-bold uppercase tracking-widest">Vice Chair</p>
+                    </div>
+                </div>
+                 <div class="group relative overflow-hidden rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-brand-blue to-transparent p-6 pt-20 text-left">
+                        <h3 class="text-white font-bold text-lg">Hassan Omar</h3>
+                        <p class="text-blue-300 text-xs font-bold uppercase tracking-widest">Sec. General</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-brand-blue to-transparent p-6 pt-20 text-left">
+                        <h3 class="text-white font-bold text-lg">Eng. Farhan</h3>
+                        <p class="text-blue-300 text-xs font-bold uppercase tracking-widest">Treasurer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-brand-accent font-bold uppercase tracking-widest text-sm">On The Ground</span>
+                <h2 class="text-4xl font-black text-brand-blue mt-2">The Movement in Pictures</h2>
+            </div>
+            <div class="columns-2 md:columns-3 gap-4 space-y-4">
+                <div class="relative group overflow-hidden rounded-xl break-inside-avoid"><img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=800" class="w-full object-cover transform group-hover:scale-110 transition duration-700"></div>
+                <div class="relative group overflow-hidden rounded-xl break-inside-avoid"><img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=800" class="w-full object-cover transform group-hover:scale-110 transition duration-700"></div>
+                <div class="relative group overflow-hidden rounded-xl break-inside-avoid"><img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800" class="w-full object-cover transform group-hover:scale-110 transition duration-700"></div>
+                <div class="relative group overflow-hidden rounded-xl break-inside-avoid"><img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=800" class="w-full object-cover transform group-hover:scale-110 transition duration-700"></div>
+                <div class="relative group overflow-hidden rounded-xl break-inside-avoid"><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800" class="w-full object-cover transform group-hover:scale-110 transition duration-700"></div>
+                <div class="relative group overflow-hidden rounded-xl break-inside-avoid"><img src="https://images.unsplash.com/photo-1596720426673-e4e14290f0cc?w=800" class="w-full object-cover transform group-hover:scale-110 transition duration-700"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="volunteer" class="py-16 bg-white relative border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-brand-accent font-bold uppercase tracking-widest text-sm">We Need You</span>
+                <h2 class="text-4xl font-black text-brand-blue mt-2">Don't Just Watch. Act.</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group relative bg-slate-50 rounded-2xl border border-slate-200 p-8 hover:shadow-xl hover:-translate-y-2 transition duration-300 cursor-pointer overflow-hidden">
+                    <div class="w-14 h-14 bg-blue-100 text-brand-blue rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition"><i class="fas fa-bullhorn"></i></div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Digital Warrior</h3>
+                    <p class="text-slate-500 text-sm mb-6">Join our WhatsApp army. We send you graphics and facts; you share them with your circle.</p>
+                </div>
+                <div class="group relative bg-slate-50 rounded-2xl border border-slate-200 p-8 hover:shadow-xl hover:-translate-y-2 transition duration-300 cursor-pointer">
+                    <div class="w-14 h-14 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-green-600 group-hover:text-white transition"><i class="fas fa-users"></i></div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Neighborhood Capt.</h3>
+                    <p class="text-slate-500 text-sm mb-6">Organize a "Shaah & Siyasada" meeting in your district. We provide the talking points.</p>
+                </div>
+                <div class="group relative bg-slate-50 rounded-2xl border border-slate-200 p-8 hover:shadow-xl hover:-translate-y-2 transition duration-300 cursor-pointer">
+                    <div class="w-14 h-14 bg-red-100 text-brand-accent rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-accent group-hover:text-white transition"><i class="fas fa-eye"></i></div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Poll Watcher</h3>
+                    <p class="text-slate-500 text-sm mb-6">Ensure the vote is fair. Sign up to be an official SYP observer at your local polling station.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="join" class="py-16 bg-slate-100 relative">
+        <div class="somali-pattern"></div>
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
+                
+                <div class="md:w-5/12 bg-brand-blue p-12 text-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-16 -mt-16 blur-2xl"></div>
+                    <div class="relative z-10">
+                        <h2 class="text-3xl font-black mb-6">Join the SYP. Own the Future.</h2>
+                        <ul class="space-y-4 mb-8 text-blue-100">
+                            <li class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-brand-accent"><i class="fas fa-id-card"></i></div>
+                                <span>Official Digital ID Card</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-green-400"><i class="fas fa-vote-yea"></i></div>
+                                <span>Primary Voting Rights</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-yellow-400"><i class="fas fa-sms"></i></div>
+                                <span>Direct SMS Updates</span>
+                            </li>
+                        </ul>
                         
-                        <div>
-                            <h3 class="text-xs font-bold text-brand-accent uppercase tracking-widest mb-6 border-b border-slate-200 dark:border-white/10 pb-2">01. Identity Information</h3>
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                <div class="group">
-                                    <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 block">Legal First Name</label>
-                                    <input type="text" class="input-field rounded-none" placeholder="Required">
+                        <div class="bg-gradient-to-r from-blue-600 to-blue-800 p-6 rounded-xl border border-white/20 shadow-lg transform rotate-2 hover:rotate-0 transition duration-500 relative overflow-hidden">
+                            <div class="pointer-events-none absolute inset-0 overflow-hidden rounded-xl">
+                                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-12 transform text-4xl font-black text-white/10 whitespace-nowrap">
+                                    SOMALI YOUTH PARTY OFFICIAL ID
                                 </div>
-                                <div class="group">
-                                    <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 block">Legal Middle Name</label>
-                                    <input type="text" class="input-field rounded-none" placeholder="Optional">
-                                </div>
-                                <div class="group">
-                                    <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 block">Legal Family Name</label>
-                                    <input type="text" class="input-field rounded-none" placeholder="Required">
-                                </div>
-                                <div class="group">
-                                    <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 block">Date of Birth</label>
-                                    <input type="date" class="input-field rounded-none">
-                                </div>
-                                <div class="group">
-                                    <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 block">National ID / Passport No.</label>
-                                    <input type="text" class="input-field rounded-none" placeholder="ID-XXXXX">
-                                </div>
-                                <div class="group">
-                                    <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 block">Gender</label>
-                                    <select class="input-field rounded-none appearance-none">
-                                        <option>Male</option>
-                                        <option>Female</option>
-                                    </select>
+                                <div class="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent mix-blend-overlay"></div>
+                            </div>
+                            <div class="flex justify-between items-start mb-4 relative z-10">
+                                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-xl overflow-hidden"><i class="fas fa-user"></i></div>
+                                <div class="text-right">
+                                    <div class="text-[10px] uppercase font-bold text-blue-200">Official Member</div>
+                                    <div class="font-bold text-lg">SYP-2025</div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-xs font-bold text-brand-accent uppercase tracking-widest mb-6 border-b border-slate-200 dark:border-white/10 pb-2">02. Operational Base</h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="group">
-                                    <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 block">Official Email Address</label>
-                                    <input type="email" class="input-field rounded-none" placeholder="name@organization.com">
-                                </div>
-                                <div class="group">
-                                    <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 block">Secure Phone Number</label>
-                                    <input type="tel" class="input-field rounded-none" placeholder="+252 ...">
-                                </div>
-                                <div class="group">
-                                    <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 block">Current City of Residence</label>
-                                    <input type="text" class="input-field rounded-none" placeholder="e.g. Hargeisa">
-                                </div>
-                                <div class="group">
-                                    <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 block">Region / State</label>
-                                    <input type="text" class="input-field rounded-none" placeholder="e.g. Maroodi Jeex">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-xs font-bold text-brand-accent uppercase tracking-widest mb-6 border-b border-slate-200 dark:border-white/10 pb-2">03. Professional Profile</h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="group">
-                                     <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 block">Primary Area of Contribution</label>
-                                     <select class="input-field rounded-none appearance-none">
-                                         <option>Policy & Governance</option>
-                                         <option>Enterprise & Finance</option>
-                                         <option>Technology & Infrastructure</option>
-                                         <option>Research & Development</option>
-                                     </select>
-                                </div>
-                                <div class="group">
-                                    <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 block">Current Organization</label>
-                                    <input type="text" class="input-field rounded-none" placeholder="Company Name">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-8 bg-slate-100 dark:bg-brand-accent/5 border border-slate-200 dark:border-brand-accent/20 flex flex-col md:flex-row items-start justify-between gap-8 mt-8">
-                            <div class="flex items-start gap-5">
-                                <div class="w-10 h-10 rounded-sm bg-brand-accent text-white flex items-center justify-center font-bold text-lg border border-brand-accent/30 mt-1 shadow-lg">
-                                    <i class="fa-solid fa-file-contract"></i>
-                                </div>
+                            <div class="flex items-center gap-4 mt-4 relative z-10">
                                 <div>
-                                    <h4 class="text-slate-900 dark:text-white text-sm font-bold uppercase tracking-widest mb-1">Identity Verification Bond</h4>
-                                    <p class="text-slate-500 dark:text-slate-400 text-xs font-light max-w-xs leading-relaxed">
-                                        A symbolic verification bond ($1.00 USD) is required to confirm identity and deter fraudulent access. This is not a donation.
-                                    </p>
+                                    <div class="h-2 w-32 bg-white/20 rounded mb-2 transition-all duration-300" id="id-card-name"></div>
+                                    <div class="h-2 w-20 bg-white/20 rounded" id="id-card-phone"></div>
                                 </div>
+                                <div class="ml-auto bg-white p-1 rounded"><img id="qr-code-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=JoinSYP" class="w-16 h-16" alt="Member QR"></div>
                             </div>
-                            <div class="w-full md:w-auto">
-                                <label class="text-[10px] font-bold text-brand-accent uppercase tracking-widest mb-2 block">Verification Reference (Zaad/Edahab)</label>
-                                <input type="text" class="w-full md:w-64 bg-white dark:bg-black/50 border border-slate-300 dark:border-brand-accent/30 px-4 py-3 text-slate-900 dark:text-white font-mono text-xs tracking-widest focus:border-brand-accent focus:outline-none placeholder-slate-400" placeholder="ENTER REFERENCE ID">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-7/12 p-12">
+                    <div class="flex justify-between items-center mb-8">
+                        <h3 class="text-2xl font-bold text-brand-blue">Account & Personal Info</h3>
+                        <button onclick="document.getElementById('login-modal').classList.remove('hidden')" class="text-sm font-bold text-brand-accent hover:underline">
+                            Already a member? Sign In
+                        </button>
+                    </div>
+
+                    <form id="regForm" onsubmit="handleRegistration(event)">
+                        <div class="grid md:grid-cols-2 gap-6 mb-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Surname <span class="text-red-500">*</span></label>
+                                <input type="text" id="name-input" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-lg focus:border-brand-blue outline-none transition" placeholder="e.g. Ali">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Other Name <span class="text-red-500">*</span></label>
+                                <input type="text" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-lg focus:border-brand-blue outline-none transition" placeholder="e.g. Hassan">
                             </div>
                         </div>
 
-                        <div class="pt-4">
-                            <button type="button" class="hover-target w-full bg-slate-900 dark:bg-white text-white dark:text-black font-bold text-sm py-5 uppercase tracking-[0.2em] hover:bg-brand-accent hover:text-white transition-all shadow-lg">
-                                Submit For Review
+                        <div class="grid md:grid-cols-2 gap-6 mb-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Member's Mobile No. <span class="text-red-500">*</span></label>
+                                <input type="tel" id="phone-input" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-lg focus:border-brand-blue outline-none transition" placeholder="+252 ...">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Special Interest Group (Optional)</label>
+                                <select class="w-full bg-slate-50 border border-slate-200 p-3 rounded-lg focus:border-brand-blue outline-none transition">
+                                    <option>None</option>
+                                    <option>Youth</option>
+                                    <option>Women</option>
+                                    <option>PWD</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6 mb-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">National ID Number <span class="text-red-500">*</span></label>
+                                <input type="text" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-lg focus:border-brand-blue outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Membership Number (Auto)</label>
+                                <input type="text" disabled value="Generating..." class="w-full bg-slate-100 border border-slate-200 p-3 rounded-lg text-slate-400">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6 mb-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Date of Birth <span class="text-red-500">*</span></label>
+                                <input type="date" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-lg focus:border-brand-blue outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Sex <span class="text-red-500">*</span></label>
+                                <select class="w-full bg-slate-50 border border-slate-200 p-3 rounded-lg focus:border-brand-blue outline-none transition">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+                        </div>
+
+                         <div class="grid md:grid-cols-2 gap-6 mb-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Ethnicity</label>
+                                <input type="text" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-lg focus:border-brand-blue outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">State / Region <span class="text-red-500">*</span></label>
+                                <input type="text" placeholder="e.g. Banaadir" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-lg focus:border-brand-blue outline-none transition">
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Are you a PWD?</label>
+                            <div class="flex gap-6">
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="pwd" value="no" checked class="text-brand-blue"> <span class="text-sm">No</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="pwd" value="yes" class="text-brand-blue"> <span class="text-sm">Yes</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-6 relative group" id="country-wrapper">
+                            <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Country <span class="text-red-500">*</span></label>
+                            <div class="flag-selected" onclick="toggleFlagDropdown()">
+                                <span id="flag-display" class="flex items-center gap-2">🌍 Select Country</span>
+                                <i class="fas fa-chevron-down ml-auto text-slate-400"></i>
+                            </div>
+                            <div class="flag-dropdown" id="flag-drop">
+                                <div class="p-2 border-b border-slate-100 sticky top-0 bg-white z-10">
+                                    <input type="text" placeholder="Search country..." class="w-full p-2 border border-slate-200 rounded text-sm outline-none focus:border-brand-blue" onkeyup="filterFlags(this.value)">
+                                </div>
+                                <div id="flag-list"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col items-center gap-4 mt-8">
+                            <button type="submit" id="submit-btn" class="w-full bg-brand-blue text-white font-bold py-4 rounded-lg shadow-lg hover:bg-blue-900 transition flex justify-center items-center gap-3">
+                                <span>Complete Registration</span> <i class="fas fa-arrow-right"></i>
                             </button>
-                            <p class="text-center text-[10px] text-slate-500 mt-6 uppercase tracking-widest">
-                                Submission does not guarantee acceptance. All applications are reviewed under internal governance protocols.
-                            </p>
                         </div>
                     </form>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
-
-    <footer class="py-20 bg-slate-50 dark:bg-black relative z-10 border-t border-slate-200 dark:border-white/5 overflow-hidden transition-colors">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center text-center">
-            
-            <div class="mb-12">
-                <span class="block text-2xl font-bold text-slate-900 dark:text-white uppercase tracking-widest mb-2">YouthParty Consortium</span>
-                <span class="block text-xs text-slate-500 uppercase tracking-[0.3em]">Independent Coordination Network</span>
+    <section class="bg-brand-blue border-t border-blue-900 relative">
+        <div class="somali-pattern"></div>
+        <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+            <div class="text-center md:text-left">
+                <h3 class="text-2xl font-black text-white mb-2"><i class="fas fa-bullhorn text-brand-accent mr-2"></i> Briefing Room</h3>
+                <p class="text-blue-200 text-sm">Get official updates directly to your inbox. No spam, just progress.</p>
             </div>
-
-            <div class="flex flex-wrap justify-center gap-8 mb-12">
-                <a href="#" class="text-xs text-slate-500 hover:text-brand-accent uppercase tracking-widest border-b border-transparent hover:border-brand-accent pb-1 transition-all">Consortium Charter</a>
-                <a href="#" class="text-xs text-slate-500 hover:text-brand-accent uppercase tracking-widest border-b border-transparent hover:border-brand-accent pb-1 transition-all">Governance Framework</a>
-                <a href="#" class="text-xs text-slate-500 hover:text-brand-accent uppercase tracking-widest border-b border-transparent hover:border-brand-accent pb-1 transition-all">Code of Conduct</a>
+            <div class="w-full md:w-auto">
+                <form class="flex w-full md:w-96">
+                    <input type="email" placeholder="Enter your email address" class="w-full p-4 rounded-l-lg outline-none text-slate-900 bg-white border-none">
+                    <button class="bg-brand-accent text-white font-bold px-6 rounded-r-lg hover:bg-red-600 transition">Subscribe</button>
+                </form>
             </div>
+        </div>
+    </section>
 
-            <div class="max-w-2xl mx-auto border-t border-slate-200 dark:border-white/5 pt-8">
-                <p class="text-[10px] text-slate-400 uppercase tracking-widest leading-relaxed">
-                    This platform operates separately from any political campaign or party structure. It serves as an independent coordination network for national development professionals.
-                </p>
-                <p class="text-[10px] text-slate-500 uppercase tracking-widest mt-4">
-                    &copy; 2026 YouthParty Consortium. All Rights Reserved.
-                </p>
+    <footer class="bg-slate-900 text-slate-400 py-16 text-sm relative">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 relative z-10">
+            <div class="col-span-1 md:col-span-2">
+                <div class="text-white font-black text-2xl mb-4">SYP</div>
+                <p class="max-w-xs mb-6">The Somali Youth Party is dedicated to building a prosperous, united, and forward-looking nation for all citizens.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 bg-slate-800 flex items-center justify-center rounded-full hover:bg-brand-blue hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 bg-slate-800 flex items-center justify-center rounded-full hover:bg-brand-blue hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="w-10 h-10 bg-slate-800 flex items-center justify-center rounded-full hover:bg-brand-blue hover:text-white transition"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold uppercase mb-6">Quick Links</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="hover:text-white transition">About the Party</a></li>
+                    <li><a href="#" class="hover:text-white transition">The Leadership</a></li>
+                    <li><a href="#" class="hover:text-white transition">Volunteer</a></li>
+                    <li><a href="#" class="hover:text-white transition">Donate</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold uppercase mb-6">Contact HQ</h4>
+                <ul class="space-y-3">
+                    <li><i class="fas fa-map-marker-alt mr-2"></i> Road 1, Mogadishu</li>
+                    <li><i class="fas fa-phone mr-2"></i> +252 61 444 555</li>
+                    <li><i class="fas fa-envelope mr-2"></i> info@somaliyouthparty.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-800 text-center relative z-10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>&copy; 2025 SYP. Developed by <a href="https://hiigsitech.com" class="text-brand-accent font-bold hover:underline">Hiigsi Tech</a>.</div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition">Terms of Service</a>
             </div>
         </div>
     </footer>
 
+    <div id="success-modal" class="fixed inset-0 z-[100] bg-black/80 hidden flex items-center justify-center p-6 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full text-center relative animate-fade-in">
+            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-check text-4xl text-green-600"></i>
+            </div>
+            <h3 class="text-2xl font-black text-brand-blue mb-2">Welcome to the Party!</h3>
+            <p class="text-slate-600 mb-6">Your registration has been received. Your digital ID is being generated. We have sent a confirmation SMS to your phone.</p>
+            <button onclick="document.getElementById('success-modal').classList.add('hidden')" class="bg-brand-blue text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-900 transition">Continue</button>
+        </div>
+    </div>
+
+    <div id="login-modal" class="fixed inset-0 z-[100] bg-black/80 hidden flex items-center justify-center p-6 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl p-8 max-w-sm w-full relative animate-fade-in">
+            <button onclick="document.getElementById('login-modal').classList.add('hidden')" class="absolute top-4 right-4 text-slate-400 hover:text-red-500"><i class="fas fa-times text-xl"></i></button>
+            <h3 class="text-2xl font-black text-brand-blue mb-6">Member Sign In</h3>
+            <form>
+                <div class="mb-4">
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Mobile / Email</label>
+                    <input type="text" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-lg focus:border-brand-blue outline-none">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Password</label>
+                    <input type="password" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-lg focus:border-brand-blue outline-none">
+                </div>
+                <button type="button" class="w-full bg-brand-blue text-white font-bold py-3 rounded-lg hover:bg-blue-900 transition">Sign In</button>
+                <div class="mt-4 text-center">
+                    <a href="#" class="text-xs text-slate-500 hover:text-brand-blue">Forgot Password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ once: true, offset: 80, duration: 1000 });
-        
-        // Cursor Logic
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-        window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-            cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
-        });
-        
-        // Hover State
-        document.querySelectorAll('.hover-target').forEach(el => {
-            el.addEventListener('mouseenter', () => { document.body.classList.add('hover-active'); });
-            el.addEventListener('mouseleave', () => { document.body.classList.remove('hover-active'); });
-        });
+        AOS.init({ once: true, offset: 50, duration: 800 });
 
-        // Theme Toggling Logic
-        const toggleBtns = [document.getElementById('theme-toggle'), document.getElementById('theme-toggle-mobile')];
-        const html = document.documentElement;
+        window.onscroll = function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
 
-        // Check local storage or system preference
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            html.classList.add('dark');
-        } else {
-            html.classList.remove('dark');
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('translate-x-full');
         }
 
-        toggleBtns.forEach(btn => {
-            if(btn) {
-                btn.addEventListener('click', () => {
-                    html.classList.toggle('dark');
-                    if(html.classList.contains('dark')) {
-                        localStorage.theme = 'dark';
-                    } else {
-                        localStorage.theme = 'light';
-                    }
-                });
+        // --- 6. Fixed Counters Logic with Intersection Observer ---
+        // This ensures numbers count up only when scrolled into view
+        const counters = document.querySelectorAll('[data-target]');
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    const increment = target / 200; // Adjust speed
+                    
+                    const updateCount = () => {
+                        const count = +counter.innerText;
+                        if(count < target) {
+                            counter.innerText = Math.ceil(count + increment);
+                            setTimeout(updateCount, 20);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(counter); // Only animate once
+                }
+            });
+        }, { threshold: 0.5 }); // Start when 50% visible
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+
+        // --- Live ID Logic ---
+        const nameInput = document.getElementById('name-input');
+        const phoneInput = document.getElementById('phone-input');
+        const nameDisplay = document.getElementById('id-card-name');
+        const phoneDisplay = document.getElementById('id-card-phone');
+        const qrImage = document.getElementById('qr-code-img');
+
+        function updateIDCard() {
+            const nameVal = nameInput.value;
+            const phoneVal = phoneInput.value;
+
+            if(nameVal.length > 0) {
+                nameDisplay.classList.remove('h-2', 'bg-white/20', 'rounded');
+                nameDisplay.style.color = 'white';
+                nameDisplay.style.fontWeight = 'bold';
+                nameDisplay.innerText = nameVal;
+            } else {
+                nameDisplay.innerText = '';
+                nameDisplay.classList.add('h-2', 'bg-white/20', 'rounded');
+            }
+
+            if(phoneVal.length > 0) {
+                phoneDisplay.classList.remove('h-2', 'bg-white/20', 'rounded');
+                phoneDisplay.style.color = '#bfdbfe'; 
+                phoneDisplay.style.fontSize = '12px';
+                phoneDisplay.innerText = phoneVal;
+            } else {
+                 phoneDisplay.innerText = '';
+                 phoneDisplay.classList.add('h-2', 'bg-white/20', 'rounded');
+            }
+
+            const qrData = `Member:${nameVal || 'Guest'}|Phone:${phoneVal}|Party:SYP`;
+            qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(qrData)}`;
+        }
+
+        nameInput.addEventListener('input', updateIDCard);
+        phoneInput.addEventListener('input', updateIDCard);
+
+        function handleRegistration(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            const originalContent = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner animate-spin-slow text-xl"></i> Processing...';
+            btn.disabled = true;
+            btn.classList.add('opacity-75', 'cursor-not-allowed');
+
+            setTimeout(() => {
+                btn.innerHTML = originalContent;
+                btn.disabled = false;
+                btn.classList.remove('opacity-75', 'cursor-not-allowed');
+                document.getElementById('success-modal').classList.remove('hidden');
+            }, 2000);
+        }
+
+        // --- Flag Dropdown Logic ---
+        const countryData = [
+            ["af","Afghanistan"],["al","Albania"],["dz","Algeria"],["ao","Angola"],
+            ["ar","Argentina"],["au","Australia"],["at","Austria"],["bh","Bahrain"],
+            ["bd","Bangladesh"],["be","Belgium"],["br","Brazil"],["ca","Canada"],
+            ["cn","China"],["co","Colombia"],["dk","Denmark"],["eg","Egypt"],
+            ["fi","Finland"],["fr","France"],["de","Germany"],["gh","Ghana"],
+            ["gr","Greece"],["in","India"],["id","Indonesia"],["ir","Iran"],
+            ["iq","Iraq"],["ie","Ireland"],["it","Italy"],["jp","Japan"],
+            ["jo","Jordan"],["ke","Kenya"],["kw","Kuwait"],["lb","Lebanon"],
+            ["ly","Libya"],["my","Malaysia"],["mx","Mexico"],["ma","Morocco"],
+            ["nl","Netherlands"],["ng","Nigeria"],["no","Norway"],["om","Oman"],
+            ["pk","Pakistan"],["ph","Philippines"],["pl","Poland"],["pt","Portugal"],
+            ["qa","Qatar"],["ru","Russia"],["sa","Saudi Arabia"],["sn","Senegal"],
+            ["so","Somalia"],["za","South Africa"],["kr","South Korea"],["es","Spain"],
+            ["lk","Sri Lanka"],["sd","Sudan"],["se","Sweden"],["ch","Switzerland"],
+            ["sy","Syria"],["tz","Tanzania"],["th","Thailand"],["tn","Tunisia"],
+            ["tr","Turkey"],["ua","Ukraine"],["ae","UAE"],["gb","United Kingdom"],
+            ["us","United States"],["ye","Yemen"]
+        ];
+
+        const flagList = document.getElementById("flag-list");
+        const flagDisplay = document.getElementById("flag-display");
+        const flagDrop = document.getElementById("flag-drop");
+
+        // Initial Populate
+        countryData.forEach(([code, name]) => {
+            const div = document.createElement("div");
+            div.className = "flag-option";
+            div.innerHTML = `<img src="https://flagcdn.com/w20/${code}.png"> <span>${name}</span>`;
+            div.onclick = () => selectFlag(code, name);
+            flagList.appendChild(div);
+        });
+        
+        selectFlag('so', 'Somalia');
+
+        function toggleFlagDropdown() {
+            flagDrop.style.display = flagDrop.style.display === "block" ? "none" : "block";
+        }
+
+        function selectFlag(code, name) {
+            flagDisplay.innerHTML = `<img src="https://flagcdn.com/w20/${code}.png"> <span>${name}</span>`;
+            flagDrop.style.display = "none";
+        }
+
+        function filterFlags(val) {
+            document.querySelectorAll(".flag-option").forEach(opt => {
+                opt.style.display = opt.innerText.toLowerCase().includes(val.toLowerCase()) ? "flex" : "none";
+            });
+        }
+
+        document.addEventListener('click', function(e) {
+            if (!document.getElementById('country-wrapper').contains(e.target)) {
+                flagDrop.style.display = 'none';
             }
         });
     </script>
